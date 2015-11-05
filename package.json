@@ -1,0 +1,36 @@
+{
+  "name": "audio-sink",
+  "version": "1.0.0",
+  "description": "Sink or tap pcm data",
+  "main": "index.js",
+  "dependencies": {
+    "audio-generator": "^1.0.5",
+    "inherits": "^2.0.1",
+    "xtend": "^4.0.1",
+    "pcm-util": "^1.1.9"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/audio-lab/sink"
+  },
+  "keywords": [
+    "sink",
+    "through2-sink",
+    "tap",
+    "tap-stream",
+    "audio",
+    "pcm",
+    "sound",
+    "debug"
+  ],
+  "author": "Deema Yvanow <dfcreative@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/audio-lab/sink/issues"
+  },
+  "homepage": "https://github.com/audio-lab/sink"
+}
