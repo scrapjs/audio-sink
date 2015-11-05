@@ -21,5 +21,5 @@ Gen(function (time) {
 
 ## Related
 
-> [through2-sink](https://www.npmjs.com/package/through2-sink) — triggers an event for the data chunk, but does not pass data through.
+> [through2-sink](https://www.npmjs.com/package/through2-sink) — triggers an event for the data chunk, but does not pass data through.<br/>
 > [tap-stream](https://www.npmjs.com/package/tap-stream) — triggers callback for the passed through data, but does not release data.
