@@ -32,7 +32,9 @@ Sink.prototype._transform = function (chunk, enc, cb) {
 Sink.prototype._write = function (chunk, enc, cb) {
 	var self = this;
 	if (!self._readableState.pipesCount) {
-		this.log(chunk);
+		self.log(chunk);
+		//just emulate data event
+		self.emit('data', chunk);
 		cb();
 	} else {
 		PassThrough.prototype._write.call(this, chunk, enc, cb);
