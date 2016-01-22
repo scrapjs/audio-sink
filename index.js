@@ -11,7 +11,9 @@ function Sink (fn) {
 
 	if (fn instanceof Function) this.log = fn;
 
-	PassThrough.call(this);
+	PassThrough.call(this, {
+		writableObjectMode: true
+	});
 }
 
 

@@ -4,14 +4,15 @@
   "description": "Sink or tap pcm data",
   "main": "index.js",
   "dependencies": {
-    "audio-generator": "^1.0.5",
     "inherits": "^2.0.1",
-    "xtend": "^4.0.1",
-    "pcm-util": "^1.1.9"
+    "xtend": "^4.0.1"
   },
-  "devDependencies": {},
+  "files": ["index.js"],
+  "devDependencies": {
+    "audio-generator": "^1.0.5"
+  },
   "scripts": {
-    "test": "node test"
+    "test": "node test.js"
   },
   "repository": {
     "type": "git",
