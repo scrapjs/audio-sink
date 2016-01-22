@@ -1,13 +1,15 @@
 {
   "name": "audio-sink",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Sink or tap audio stream data",
   "main": "index.js",
   "dependencies": {
     "inherits": "^2.0.1",
     "xtend": "^4.0.1"
   },
-  "files": ["index.js"],
+  "files": [
+    "index.js"
+  ],
   "devDependencies": {
     "audio-generator": "^1.0.5"
   },
