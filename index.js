@@ -12,6 +12,7 @@ function Sink (fn) {
 	if (fn instanceof Function) this.log = fn;
 
 	PassThrough.call(this, {
+		highWaterMark: 0,
 		writableObjectMode: true
 	});
 }
@@ -42,10 +43,18 @@ Sink.prototype._transform = function (chunk, enc, cb) {
 Sink.prototype._write = function (chunk, enc, cb) {
 	var self = this;
 	if (!self._readableState.pipesCount) {
-		self.log(chunk);
-		//just emulate data event
-		self.emit('data', chunk);
-		cb();
+		if (this.log.length > 1) {
+			this.log(chunk, function () {
+				self.emit('data', chunk);
+				cb();
+			});
+		}
+		else {
+			self.log(chunk);
+			//just emulate data event
+			self.emit('data', chunk);
+			cb();
+		}
 	} else {
 		PassThrough.prototype._write.call(this, chunk, enc, cb);
 	}

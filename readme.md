@@ -1,6 +1,6 @@
 Triggers an event for received audio chunk and releases the data. If piped to somewhere, it turns into a pass-throught stream. That way, it is [through2-sink](https://www.npmjs.com/package/through2-sink) and [tap-stream](https://www.npmjs.com/package/tap-stream) in one. Use as a fast replacement for [audio-speaker](https://npmjs.org/package/audio-speaker) or [audio-render](https://npmjs.org/package/audio-render).
 
-Can function as a pressure controller.
+Can function as a pressure controller. See example.
 
 ## Usage
 
@@ -16,7 +16,7 @@ Gen(function (time) {
 .pipe(Sink(function (data, cb) {
 	console.log('Passed through chunk of data ', data.length);
 
-	//control pressure
+	//control pressure - if cb argument is expected - then call it when required.
 	setTimeout(cb, 10);
 }))
 .pipe(Sink(function (data) {
