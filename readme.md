@@ -14,18 +14,17 @@ Gen(function (time) {
 	return time ? 0 : 1;
 })
 .pipe(Sink(function (data, cb) {
-	console.log('Passed through chunk of data ', data.length);
+	console.log('This sink is a pass-through with 10ms throttling ', data.length);
 
-	//control pressure - if cb argument is expected - then call it when required.
 	setTimeout(cb, 10);
 }))
 .pipe(Sink(function (data) {
-	console.log('Got chunk of data ', data.length);
+	console.log('This sink gets the data and releases it ', data.length);
 }));
 ```
 
 ## Related
 
-> [stream-sink](https://www.npmjs.com/package/stream-sink) — universal stream sink.
+> [stream-sink](https://www.npmjs.com/package/stream-sink) — universal stream sink.<br/>
 > [through2-sink](https://www.npmjs.com/package/through2-sink) — triggers an event for the data chunk, but does not pass data through.<br/>
 > [tap-stream](https://www.npmjs.com/package/tap-stream) — triggers callback for the passed through data, but does not release data.
