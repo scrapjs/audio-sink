@@ -13,7 +13,7 @@ function Sink (fn) {
 
 	PassThrough.call(this, {
 		highWaterMark: 0,
-		writableObjectMode: true
+		objectMode: true
 	});
 }
 
