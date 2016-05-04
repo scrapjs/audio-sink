@@ -26,8 +26,16 @@ Sink.prototype.log = function () {
 
 
 Sink.prototype._transform = function (chunk, enc, cb) {
-	this.log(chunk);
-	cb(null, chunk);
+	//control pressure
+	if (this.log.length > 1) {
+		this.log(chunk, function () {
+			cb(null, chunk);
+		});
+	}
+	else {
+		this.log(chunk);
+		cb(null, chunk);
+	}
 }
 
 

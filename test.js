@@ -5,8 +5,10 @@ var Transform = require('stream').Transform;
 Gen(function (time) {
 	return time ? 0 : 1;
 })
-.pipe(Sink(function (data) {
+.pipe(Sink(function (data, cb) {
 	console.log('Passed through chunk of data ', data.length);
+
+	setTimeout(cb, 100);
 }))
 .pipe(Transform({
 	transform: function (data, enc, cb) {
