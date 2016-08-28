@@ -15,6 +15,10 @@ function Sink (fn) {
 		highWaterMark: 0,
 		objectMode: true
 	});
+
+	this.on('end', () => {
+		console.log(1)
+	})
 }
 
 
@@ -56,7 +60,7 @@ Sink.prototype._write = function (chunk, enc, cb) {
 			cb();
 		}
 	} else {
-		PassThrough.prototype._write.call(this, chunk, enc, cb);
+			PassThrough.prototype._write.call(this, chunk, enc, cb);
 	}
 };
 
