@@ -1,6 +1,6 @@
 {
   "name": "audio-sink",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "description": "Sink or tap audio stream data",
   "main": "./stream.js",
   "dependencies": {
