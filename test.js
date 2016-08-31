@@ -23,6 +23,6 @@ Generator(function (time) {
 
 
 
-// var Slice = require('../audio-slice');
+// var Slice = require('../slice');
 
-// Generator().pipe(Slice(2)).pipe(Sink());
+// Generator().pipe(Slice(2)).pipe(Sink(v => console.log(v)));
