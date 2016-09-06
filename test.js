@@ -55,7 +55,7 @@ test('Pull-stream', (done) => {
 });
 
 
-test.only('Pull-stream readme case', done => {
+test('Pull-stream readme case', done => {
 	const pull = require('pull-stream/pull');
 	const sink = require('./pull');
 	const generator = require('audio-generator/pull');
