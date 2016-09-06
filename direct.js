@@ -5,23 +5,25 @@
 
 
 module.exports = function Sink (fn) {
-	return sink;
-
-	function sink (buffer, cb) {
-		//if fn logger/pressure control
-		if (fn instanceof Function) {
-			//async fn
-			if (fn.length > 1) {
+	//if fn logger/pressure control
+	if (fn instanceof Function) {
+		//async fn
+		if (fn.length > 1) {
+			return function (buffer, cb) {
 				return fn.call(this, buffer, cb);
 			}
-			//sync fn
-			else {
+		}
+		//sync fn
+		else {
+			return function (buffer, cb) {
 				let result = fn.call(this, buffer);
-				cb(null, result);
-				return;
+				if (cb) return cb(null, result);
+				return result;
 			}
 		}
+	}
 
+	return function (buffer, cb) {
 		//simple drain
 		if (cb) {
 			return cb(null, buffer);
