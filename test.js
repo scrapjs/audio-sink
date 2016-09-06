@@ -1,3 +1,5 @@
+'use strict';
+
 var Generator = require('audio-generator/stream');
 var Sink = require('./direct');
 var PullSink = require('./pull');

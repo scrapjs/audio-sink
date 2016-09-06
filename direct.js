@@ -9,7 +9,7 @@ module.exports = function Sink (fn) {
 
 	function sink (buffer, cb) {
 		//if fn logger/pressure control
-		if (fn) {
+		if (fn instanceof Function) {
 			//async fn
 			if (fn.length > 1) {
 				return fn.call(this, buffer, cb);
