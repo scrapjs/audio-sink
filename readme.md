@@ -13,10 +13,14 @@ Can function as a pressure controller. See example.
 ```js
 const Sink = require('audio-sink/direct');
 
-//log data and invoke cb after 100ms
 let sink = Sink((data, cb) => {
 	console.log(data);
 	setTimeout(cb, 100);
+});
+
+//log data and invoke cb after 100ms
+sink(buffer, (err, buffer) => {
+
 });
 ```
 
