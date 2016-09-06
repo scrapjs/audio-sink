@@ -8,9 +8,43 @@ Can function as a pressure controller. See example.
 
 [![npm install audio-sink](https://nodei.co/npm/audio-sink.png?mini=true)](https://npmjs.org/package/audio-sink/)
 
+#### Direct
+
 ```js
-var Gen = require('audio-generator');
-var Sink = require('audio-sink');
+const Sink = require('audio-sink/direct');
+
+//log data and invoke cb after 100ms
+let sink = Sink((data, cb) => {
+	console.log(data);
+	setTimeout(cb, 100);
+});
+```
+
+#### Pull-stream
+
+```js
+const pull = require('pull-stream/pull');
+const sink = require('audio-sink/pull');
+const generator = require('audio-generator/pull');
+
+//stream generated data to sink with pressure control
+pull(
+	generator(time => Math.sin(time * Math.PI * 2 * 440)),
+	sink((data, cb) => {
+		//end stream if needed
+		if (tooLate) return cb(true);
+
+		console.log(data);
+		setTimeout(cb, 100);
+	});
+);
+```
+
+#### Stream
+
+```js
+var Gen = require('audio-generator/stream');
+var Sink = require('audio-sink/stream');
 
 Gen(function (time) {
 	return time ? 0 : 1;
